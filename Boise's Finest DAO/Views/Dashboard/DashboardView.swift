@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct DashboardView: View {
+    @EnvironmentObject var fclModel: FCLModel
+    
     var body: some View {
-        ZStack {
+        VStack {
             Text("Dashboard")
         }
     }

@@ -10,7 +10,10 @@ import SwiftUI
 struct GovernanceView: View {
     var body: some View {
         ZStack {
-            Text("Governance")
+            ScrollView {
+                GovCardView(category: "Investing", heading: "Move Investments to Binance", author: "BoiseITGuru")
+                GovCardView(category: "Governance", heading: "Do we want Pizza at the next meeting", author: "BoiseITGuru")
+            }
         }
     }
 }
