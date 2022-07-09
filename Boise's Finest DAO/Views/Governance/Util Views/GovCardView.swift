@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct GovCardView: View {
-    var image: String?
-    var category: String
-    var heading: String
-    var author: String
+    var ballot: GovernVoteModel
     
     var body: some View {
         VStack {
-            if let cardImage = image {
+            if let cardImage = ballot.image {
                 Image(cardImage)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -23,15 +20,15 @@ struct GovCardView: View {
 
             HStack {
                 VStack(alignment: .leading) {
-                    Text(category)
+                    Text(ballot.category.rawValue)
                         .font(.headline)
                         .foregroundColor(.secondary)
-                    Text(heading)
-                        .font(.title)
+                    Text(ballot.heading)
+                        .font(.title3)
                         .fontWeight(.black)
                         .foregroundColor(.primary)
                         .lineLimit(3)
-                    Text(author)
+                    Text(ballot.author)
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
@@ -47,11 +44,5 @@ struct GovCardView: View {
                 .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
         )
         .padding([.top, .horizontal])
-    }
-}
-
-struct GovCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        GovCardView(category: "Investments", heading: "Should we move forward with OctoBot", author: "BoiseITGuru")
     }
 }
